@@ -67,36 +67,36 @@ for stage in trace_stage:
                     Proc_info[i]["state"] = line[20:]
                 elif line[0:17] == "Procs[Proc_" + str(i+1) + "].val":
                     Proc_info[i]["value"] = line[18:]
-                elif line[0:23] == "Procs[Proc_" + str(i+1) + "].ack_count":
-                    Proc_info[i]["count"] = line[24:]
-        elif line[0:8] == "Net[Home":
-            if count == 5:
-                count = 0
-            if count == 0:
-                Net_info_H.append([])
-            count += 1
-            Net_info_H[-1].append(line[line.index(":")+1:])
-        elif line[0:10] == "Net[Proc_1":
-            if count == 5:
-                count = 0
-            if count == 0:
-                Net_info_P1.append([])
-            count += 1
-            Net_info_P1[-1].append(line[line.index(":")+1:])
-        elif line[0:10] == "Net[Proc_2":
-            if count == 5:
-                count = 0
-            if count == 0:
-                Net_info_P2.append([])
-            count += 1
-            Net_info_P2[-1].append(line[line.index(":")+1:])
-        elif line[0:10] == "Net[Proc_3":
-            if count == 5:
-                count = 0
-            if count == 0:
-                Net_info_P3.append([])
-            count += 1
-            Net_info_P3[-1].append(line[line.index(":")+1:])
+        #         elif line[0:23] == "Procs[Proc_" + str(i+1) + "].ack_count":
+        #             Proc_info[i]["count"] = line[24:]
+        # elif line[0:8] == "Net[Home":
+        #     if count == 5:
+        #         count = 0
+        #     if count == 0:
+        #         Net_info_H.append([])
+        #     count += 1
+        #     Net_info_H[-1].append(line[line.index(":")+1:])
+        # elif line[0:10] == "Net[Proc_1":
+        #     if count == 5:
+        #         count = 0
+        #     if count == 0:
+        #         Net_info_P1.append([])
+        #     count += 1
+        #     Net_info_P1[-1].append(line[line.index(":")+1:])
+        # elif line[0:10] == "Net[Proc_2":
+        #     if count == 5:
+        #         count = 0
+        #     if count == 0:
+        #         Net_info_P2.append([])
+        #     count += 1
+        #     Net_info_P2[-1].append(line[line.index(":")+1:])
+        # elif line[0:10] == "Net[Proc_3":
+        #     if count == 5:
+        #         count = 0
+        #     if count == 0:
+        #         Net_info_P3.append([])
+        #     count += 1
+        #     Net_info_P3[-1].append(line[line.index(":")+1:])
         elif line[0:16] == "LastWrite:Value_":
             last_val = line[16:]
         elif line[0:14] == "msg_processed:":
@@ -111,7 +111,7 @@ for stage in trace_stage:
     Net_msg_H[1] = "source:"
     Net_msg_H[2] = "vc    :"
     Net_msg_H[3] = "value :"
-    Net_msg_H[4] = "count :"
+    # Net_msg_H[4] = "count :"
     for i in range(len(Net_info_H)):
         for j in range(5):
             Net_msg_H[j] += "{:<21}".format(Net_info_H[i][j])
@@ -119,7 +119,7 @@ for stage in trace_stage:
     Net_msg_P1[1] = "source:"
     Net_msg_P1[2] = "vc    :"
     Net_msg_P1[3] = "value :"
-    Net_msg_P1[4] = "count :"
+    # Net_msg_P1[4] = "count :"
     for i in range(len(Net_info_P1)):
         for j in range(5):
             Net_msg_P1[j] += "{:<21}".format(Net_info_P1[i][j])
@@ -127,7 +127,7 @@ for stage in trace_stage:
     Net_msg_P2[1] = "source:"
     Net_msg_P2[2] = "vc    :"
     Net_msg_P2[3] = "value :"
-    Net_msg_P2[4] = "count :"
+    # Net_msg_P2[4] = "count :"
     for i in range(len(Net_info_P2)):
         for j in range(5):
             Net_msg_P2[j] += "{:<21}".format(Net_info_P2[i][j])
@@ -135,7 +135,7 @@ for stage in trace_stage:
     Net_msg_P3[1] = "source:"
     Net_msg_P3[2] = "vc    :"
     Net_msg_P3[3] = "value :"
-    Net_msg_P3[4] = "count :"
+    # Net_msg_P3[4] = "count :"
     for i in range(len(Net_info_P3)):
         for j in range(5):
             Net_msg_P3[j] += "{:<21}".format(Net_info_P3[i][j])
@@ -152,7 +152,7 @@ for stage in trace_stage:
     trace_stage_processed[-1].append("{:<20} {:<20} {:<20}".format("Proc_1","Proc_2","Proc_3"))
     trace_stage_processed[-1].append("State: {:<14}State: {:<14}State: {:<14}".format(Proc_info[0]["state"], Proc_info[1]["state"], Proc_info[2]["state"]))
     trace_stage_processed[-1].append("Value: {:<14}Value: {:<14}Value: {:<14}".format(Proc_info[0]["value"], Proc_info[1]["value"], Proc_info[2]["value"]))
-    trace_stage_processed[-1].append("Count: {:<14}Count: {:<14}Count: {:<14}".format(Proc_info[0]["count"], Proc_info[1]["count"], Proc_info[2]["count"]))
+    # trace_stage_processed[-1].append("Count: {:<14}Count: {:<14}Count: {:<14}".format(Proc_info[0]["count"], Proc_info[1]["count"], Proc_info[2]["count"]))
     trace_stage_processed[-1].append("")
     trace_stage_processed[-1].append("Home Net:")
     for i in range(5):
